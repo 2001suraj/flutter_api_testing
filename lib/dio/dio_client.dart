@@ -11,6 +11,7 @@ Dio dioClient = Dio(
   ),
 );
 
+
 Dio dioClientWithNoAuth = Dio(
   BaseOptions(
     baseUrl: '${ApiEndPoint.baseUrl}/${ApiEndPoint.version}/',
