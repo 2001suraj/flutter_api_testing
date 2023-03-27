@@ -10,6 +10,7 @@ class ServiceAndFacilitiesListModel {
   String? imagePath;
   String? responseMsg;
   bool? isSuccess;
+  
   int? entityId;
   int? errorNumber;
   String? cUserName;
