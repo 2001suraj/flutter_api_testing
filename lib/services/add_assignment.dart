@@ -44,7 +44,7 @@ class AddAssignment {
           data: formData);
 
       if (response.statusCode == 200) {
-        print('message ===== >>  ' + response.data['ResponseMSG']);
+        print('assignment added ===== >>  ' + response.data['ResponseMSG']);
         print(response.data['IsSuccess']);
         return response.data['ResponseMSG'];
       } else {}
