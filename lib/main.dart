@@ -1,3 +1,13 @@
+import 'package:flutter_api_testing/services/add_homework.dart';
+import 'package:flutter_api_testing/services/get_my_remark.dart';
+import 'package:flutter_api_testing/services/leave_request.dart';
+import 'package:flutter_api_testing/services/leave_type.dart';
+import 'package:flutter_api_testing/services/local_storage/local.dart';
+import 'package:flutter_api_testing/services/student_remark.dart';
+import 'package:flutter_api_testing/services/user_auth_service.dart';
+import 'package:flutter_api_testing/widgets/screens/add_assignment_screen.dart';
+import 'package:flutter_api_testing/widgets/screens/assignment_list_screen.dart';
+import 'package:flutter_api_testing/widgets/screens/assignment_type_list_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,103 +23,273 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MyHomePage extends StatelessWidget {
+  MyHomePage({super.key});
+  // FormData dat = FormData.fromMap({
+  //   'paraDataColl': DataAddAssignmentModel(
+  //       assignmentTypeId: 1,
+  //       classId: 4,
+  //       deadlineDate: '2021-05-20',
+  //       deadlineTime: '2021-05-20T10:00',
+  //       deadlineforRedo: null,
+  //       deadlineforRedoTime: null,
+  //       description: 'description',
+  //       isAllowLateSibmission: true,
+  //       markScheme: 1,
+  //       marks: 50,
+  //       sectionId: 2,
+  //       subjectId: 2,
+  //       title: 'title',
+  //       weblink: 'new tt'),
+  //   'file1':
+  //       '/data/user/0/com.example.flutter_api_testing/cache/c575e422-fefe-4b3b-be0a-281874880560/20230315_114137.jpg',
+  // });
+  // FormData dat = FormData.fromMap({
+  //   'paraDataColl': DataAddAssignmentModel(
+  //       assignmentTypeId: 1,
+  //       classId: 4,
+  //       deadlineDate: '2021-05-20',
+  //       deadlineTime: '2021-05-20T10:00',
+  //       deadlineforRedo: null,
+  //       deadlineforRedoTime: null,
+  //       description: 'description',
+  //       isAllowLateSibmission: true,
+  //       markScheme: 1,
+  //       marks: 50,
+  //       sectionId: 2,
+  //       subjectId: 2,
+  //       title: 'title',
+  //       weblink: 'new tt'),
+  //   'file1': MultipartFile.fromFile(
+  //       '/data/user/0/com.example.flutter_api_testing/cache/c575e422-fefe-4b3b-be0a-281874880560/20230315_114137.jpg'),
+  // });
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
+  // {
+  //   'paraDataColl': DataAddAssignmentModel(
+  //       assignmentTypeId: 1,
+  //       classId: 4,
+  //       deadlineDate: '2021-05-20',
+  //       deadlineTime: '2021-05-20T10:00',
+  //       deadlineforRedo: null,
+  //       deadlineforRedoTime: null,
+  //       description: 'description',
+  //       isAllowLateSibmission: true,
+  //       markScheme: 1,
+  //       marks: 50,
+  //       sectionId: 2,
+  //       subjectId: 2,
+  //       title: 'title',
+  //       weblink: 'new tt'),
 
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  //   'file1':
+  //       '/data/user/0/com.example.flutter_api_testing/cache/c575e422-fefe-4b3b-be0a-281874880560/20230315_114137.jpg',
+  // File(image!.path)
+  // });
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    var getstudenttoken = UserAuthService().getStudentToken(
+      userName: 'Anish15',
+      passWord: '113407',
+    );
+    var teachertoken = UserAuthService().getToken(
+      userName: 'E.1',
+      passWord: '13852',
+    );
+
+    var studentremark = StudentRemark().studentRemark();
+    var myRemark = GetMyRemarks().getMyRemarks();
+    var leaveType = LeaveType().getLeaveType();
+    var leaveRequest = LeaveRequest().getLeaveRequest();
+    var addHomeWork = AddHomework().addHomework();
+
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+      appBar: AppBar(),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              //student
+              Text('Student ', style: TextStyle(fontWeight: FontWeight.bold)),
+              SizedBox(
+                height: 10,
+              ),
+              FutureBuilder(
+                future: getstudenttoken,
+                builder: (context, snapshot) {
+                  return Container(
+                    height: 50,
+                    child: FutureBuilder(
+                      future: LocalStorage().gettoken(value: 'token'),
+                      builder: (context, snap) {
+                        return FutureBuilder(
+                          future: studentremark,
+                          builder: (context, snapshot) {
+                            return ListView.builder(
+                              itemCount: snapshot.data?.length,
+                              itemBuilder: (context, index) {
+                                return Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                        ("student Name :  ${snapshot.data?[index].name}")),
+                                    Text(
+                                        ("class :  ${snapshot.data?[index].className}")),
+                                  ],
+                                );
+                              },
+                            );
+                          },
+                        );
+                      },
+                    ),
+                  );
+                },
+              ),
+              //teacher
+              Text('Teacher ', style: TextStyle(fontWeight: FontWeight.bold)),
+              SizedBox(
+                height: 10,
+              ),
+              FutureBuilder(
+                future: teachertoken,
+                builder: (context, snapshot) {
+                  return Container(
+                    height: 150,
+                    child: FutureBuilder(
+                      future: LocalStorage().gettoken(value: 'Teachertoken'),
+                      builder: (context, snap) {
+                        return Column(
+                          children: [
+                            Container(
+                              height: 90,
+                              child: FutureBuilder(
+                                future: myRemark,
+                                builder: (context, snapshot) {
+                                  return ListView.builder(
+                                    itemCount: snapshot.data?.length,
+                                    itemBuilder: (context, index) {
+                                      return Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                              (" UserName :  ${snapshot.data?[index].userName}")),
+                                          Text(
+                                              (" Father Name :  ${snapshot.data?[index].fatherName}")),
+                                          Text(
+                                              ("contact number :  ${snapshot.data?[index].contactNo}")),
+                                          Text(
+                                              ("UserId :  ${snapshot.data?[index].userId}")),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  );
+                },
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text('Leave Type :',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+
+              //teacher
+
+              FutureBuilder(
+                future: teachertoken,
+                builder: (context, snapshot) {
+                  return Container(
+                    height: 150,
+                    child: FutureBuilder(
+                      future: LocalStorage().gettoken(value: 'Teachertoken'),
+                      builder: (context, snap) {
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            //leave type
+                            Container(
+                              height: 100,
+                              child: FutureBuilder(
+                                future: leaveType,
+                                builder: (context, snapshot) {
+                                  return ListView.builder(
+                                    shrinkWrap: true,
+                                    primary: false,
+                                    itemCount: snapshot.data?.length,
+                                    itemBuilder: (context, index) {
+                                      return Text((snapshot.data?[index].name)
+                                          .toString());
+                                    },
+                                  );
+                                },
+                              ),
+                            ),
+                            Text('Leave Type :',
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+
+                            //leave request
+                            FutureBuilder(
+                              future: leaveRequest,
+                              builder: (context, snapshot) {
+                                return Container(
+                                    height: 30,
+                                    child: Text('${snapshot.data}'));
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  );
+                },
+              ),
+
+              AddAssingmentScreen(),
+
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AssignmentTypeListScreen(),
+                        ));
+                  },
+                  child: Text('Assignement Type list')),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AssignmentListScreen(),
+                        ));
+                  },
+                  child: Text('Assignement list')),
+            ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

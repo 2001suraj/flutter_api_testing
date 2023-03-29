@@ -5,12 +5,15 @@ import 'end_points.dart';
 Dio dioClient = Dio(
   BaseOptions(
     baseUrl: '${ApiEndPoint.baseUrl}/${ApiEndPoint.version}/',
+    // headers: {
+    //   "Autheoization":
+    // },
+
     connectTimeout: const Duration(seconds: ApiEndPoint.connectionTimeout),
     receiveTimeout: const Duration(seconds: ApiEndPoint.receiveTimeout),
     responseType: ResponseType.json,
   ),
 );
-
 
 Dio dioClientWithNoAuth = Dio(
   BaseOptions(
