@@ -1,5 +1,4 @@
 import 'dart:collection';
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -16,14 +15,14 @@ class _SelectDateWidgetState extends State<SelectDateWidget> {
       DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
 
   DateTime selectedDay = DateTime.now();
-  List<Event> _getEventsForDay(DateTime day) {
-  return events[day] ?? [];
-}
-final events = LinkedHashMap(
-  equals: isSameDay,
-  hashCode: (date)=>date.hashCode,
-)..addAll({DateTime.now():'Ghode jatra'});
- 
+  List _getEventsForDay(DateTime day) {
+    return events[day] ?? [];
+  }
+
+  final events = LinkedHashMap(
+    equals: isSameDay,
+    hashCode: (date) => date.hashCode,
+  )..addAll({DateTime.now().subtract(Duration(days: 5)): 'Ghode jatra'});
 
   @override
   Widget build(BuildContext context) {
@@ -69,6 +68,9 @@ final events = LinkedHashMap(
           ),
         ),
         startingDayOfWeek: StartingDayOfWeek.sunday,
+        eventLoader: (day) {
+          return _getEventsForDay(day);
+        },
         headerStyle: HeaderStyle(
           formatButtonDecoration: BoxDecoration(
             color: Colors.orange,
