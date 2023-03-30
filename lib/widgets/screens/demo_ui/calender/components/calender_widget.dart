@@ -38,7 +38,7 @@ class _SelectDateWidgetState extends State<SelectDateWidget> {
       ),
       child: TableCalendar(
         daysOfWeekHeight: 15,
-        daysOfWeekStyle: DaysOfWeekStyle(
+        daysOfWeekStyle: const DaysOfWeekStyle(
           weekdayStyle: TextStyle(color: Colors.blue),
           weekendStyle: TextStyle(color: Colors.red),
         ),
