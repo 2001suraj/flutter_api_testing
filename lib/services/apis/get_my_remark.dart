@@ -5,7 +5,7 @@ import 'package:flutter_api_testing/dio/end_points.dart';
 import 'package:flutter_api_testing/models/get_my_remark_model/get_my_remark_model.dart';
 import 'package:flutter_api_testing/services/local_storage/local.dart';
 
-import '../dio/dio_client.dart';
+import '../../dio/dio_client.dart';
 
 class GetMyRemarks {
   Future<List<GetMyRemarkModel>?> getMyRemarks() async {

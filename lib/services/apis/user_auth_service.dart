@@ -7,7 +7,7 @@ import 'package:flutter_api_testing/models/teacher_login_model/teacher_login_mod
 import 'package:flutter_api_testing/services/local_storage/local.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../dio/dio_client.dart';
+import '../../dio/dio_client.dart';
 
 class UserAuthService {
   Future<TeacherLoginModel?> getToken(

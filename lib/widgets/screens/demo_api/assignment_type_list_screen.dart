@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_api_testing/services/assignment_type_list.dart';
+import 'package:flutter_api_testing/services/apis/assignment_type_list.dart';
 
 class AssignmentTypeListScreen extends StatelessWidget {
   const AssignmentTypeListScreen({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_api_testing/services/assignment_list.dart';
+import 'package:flutter_api_testing/services/apis/assignment_list.dart';
 
 class AssignmentListScreen extends StatelessWidget {
   const AssignmentListScreen({super.key});

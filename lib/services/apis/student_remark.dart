@@ -5,7 +5,7 @@ import 'package:flutter_api_testing/dio/end_points.dart';
 import 'package:flutter_api_testing/models/student_remarkmodel/student_remarkmodel.dart';
 import 'package:flutter_api_testing/services/local_storage/local.dart';
 
-import '../dio/dio_client.dart';
+import '../../dio/dio_client.dart';
 
 class StudentRemark {
   Future<List<StudentRemarkmodel>?> studentRemark() async {

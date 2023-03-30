@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_api_testing/services/add_assignment.dart';
+import 'package:flutter_api_testing/services/apis/add_assignment.dart';
 import 'package:image_picker/image_picker.dart';
 
 class AddAssingmentScreen extends StatelessWidget {
