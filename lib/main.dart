@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_api_testing/widgets/screens/demo_ui/activity/activity_screen.dart';
 import 'package:flutter_api_testing/widgets/screens/demo_ui/calender/calender_screen.dart';
 import 'package:flutter_api_testing/widgets/screens/demo_ui/home/home_screen.dart';
+import 'package:flutter_api_testing/widgets/screens/demo_ui/leave_request/leave_request_screen.dart';
 import 'package:flutter_api_testing/widgets/screens/demo_ui/notification/notification_screen.dart';
 
 void main() {
@@ -39,7 +40,8 @@ class _MainScreenState extends State<MainScreen> {
     HomeScreen(),
     NotificationScreen(),
     CalenderScreen(),
-    ActivityScreen()
+    // ActivityScreen()
+    LeaveRequestScreen()
   ];
   @override
   Widget build(BuildContext context) {

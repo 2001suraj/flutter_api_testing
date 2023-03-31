@@ -12,7 +12,7 @@ class SingelEventContainer extends StatelessWidget {
     return Container(
       height: 80,
       width: double.infinity,
-      margin: EdgeInsets.symmetric(
+      margin: const EdgeInsets.symmetric(
         vertical: 10,
       ),
       decoration: BoxDecoration(
@@ -35,7 +35,7 @@ class SingelEventContainer extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   //event title
-                  Text(
+                  const Text(
                     'Ghode Jatra - Public Holiday',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
@@ -45,8 +45,8 @@ class SingelEventContainer extends StatelessWidget {
                     ),
                   ),
                   //event date
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 3.0),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 3.0),
                     child: Text(
                       'Date : 2079 Chaitra 7 ,',
                       style: TextStyle(
@@ -59,18 +59,18 @@ class SingelEventContainer extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       //passed
-                      Text(
+                      const Text(
                         'Passed',
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       // for class
-                      Text(
+                      const Text(
                         'For Class : ',
                         style: TextStyle(
                           fontSize: 12,
@@ -84,7 +84,7 @@ class SingelEventContainer extends StatelessWidget {
             ),
             trailing: Stack(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 40,
                   width: 30,
                 ),
@@ -96,7 +96,7 @@ class SingelEventContainer extends StatelessWidget {
                     backgroundColor: color,
                   ),
                 ),
-                Positioned(
+                const Positioned(
                   top: 10,
                   child: Icon(
                     Icons.more_vert,
