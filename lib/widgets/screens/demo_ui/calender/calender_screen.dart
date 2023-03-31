@@ -8,8 +8,8 @@ import 'package:intl/intl.dart';
 
 class CalenderScreen extends StatelessWidget {
  CalenderScreen({super.key});
-  String currentMonth = DateFormat.MMMM().format(DateTime.now());
-  String monthYear = DateFormat.yMMMM().format(DateTime.now());
+  final String currentMonth = DateFormat.MMMM().format(DateTime.now());
+ final String monthYear = DateFormat.yMMMM().format(DateTime.now());
 
    final List<Color> colors = [
     Colors.red,

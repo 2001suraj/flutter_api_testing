@@ -130,7 +130,6 @@ class _LeaveRequestScreenState extends State<LeaveRequestScreen> {
               )),
             ),
             Container(
-              height: 300,
               decoration: const BoxDecoration(
                 border: Border(
                   top: BorderSide(color: Colors.black),
@@ -141,83 +140,57 @@ class _LeaveRequestScreenState extends State<LeaveRequestScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   //leave type
-                  TextFormField(
-                    decoration: InputDecoration(
-                      fillColor: Colors.white,
-                      filled: true,
-                      contentPadding:
-                          const EdgeInsets.symmetric(horizontal: 20),
-                      border: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(color: Colors.grey, width: 2),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(color: Colors.grey, width: 2),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      suffixIcon: DropdownButtonFormField(
-                        value: selectLeaveType,
-                        items: leaveType.map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                        onChanged: (String? newValue) {
-                          // setState(() {
-                          //   selectLeaveType = newValue;
-                          // });
-                        },
-                        decoration: const InputDecoration(
-                            hintText: 'Leave Type',
-                            contentPadding:
-                                EdgeInsets.symmetric(horizontal: 15),
-                            border: InputBorder.none),
-                      ),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(14)),
+                    child: DropdownButtonFormField(
+                      value: selectLeaveType,
+                      items: leaveType.map((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      onChanged: (String? newValue) {
+                        // setState(() {
+                        //   selectLeaveType = newValue;
+                        // });
+                      },
+                      decoration: const InputDecoration(
+                          hintText: 'Leave Type',
+                          contentPadding: EdgeInsets.symmetric(horizontal: 15),
+                          border: InputBorder.none),
                     ),
                   ),
+
                   const SizedBox(
                     height: 10,
                   ), //leave duration
-                  TextFormField(
-                    decoration: InputDecoration(
-                      fillColor: Colors.white,
-                      filled: true,
-                      contentPadding:
-                          const EdgeInsets.symmetric(horizontal: 20),
-                      border: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(color: Colors.grey, width: 2),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(color: Colors.grey, width: 2),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      suffixIcon: DropdownButtonFormField(
-                        value: selectLeaveDuration,
-                        items: leaveDuration.map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                        onChanged: (String? newValue) {
-                          // setState(() {
-                          //   selectLeaveDuration = newValue;
-                          // });
-                        },
-                        decoration: const InputDecoration(
-                            hintText: 'Leave Duration',
-                            contentPadding:
-                                EdgeInsets.symmetric(horizontal: 15),
-                            border: InputBorder.none),
-                      ),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(14)),
+                    child: DropdownButtonFormField(
+                      value: selectLeaveDuration,
+                      items: leaveDuration.map((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      onChanged: (String? newValue) {
+                        // setState(() {
+                        //   selectLeaveDuration = newValue;
+                        // });
+                      },
+                      decoration: const InputDecoration(
+                          hintText: 'Leave Duration',
+                          contentPadding: EdgeInsets.symmetric(horizontal: 15),
+                          border: InputBorder.none),
                     ),
                   ),
+
                   const SizedBox(
                     height: 10,
                   ),
@@ -368,8 +341,8 @@ class _LeaveRequestScreenState extends State<LeaveRequestScreen> {
                 ? const SizedBox()
                 : Container(
                     color: Colors.grey,
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.4,
+                    width: MediaQuery.of(context).size.width / 3,
+                    height: MediaQuery.of(context).size.height / 4,
                     child: Expanded(
                       child: Image.file(
                         File(image!.path),

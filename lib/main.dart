@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_api_testing/widgets/screens/demo_ui/assets_request_list/assets_request_list_screen.dart';
 import 'package:flutter_api_testing/widgets/screens/demo_ui/calender/calender_screen.dart';
 import 'package:flutter_api_testing/widgets/screens/demo_ui/home/home_screen.dart';
 import 'package:flutter_api_testing/widgets/screens/demo_ui/leave_request/leave_request_screen.dart';
@@ -36,8 +37,9 @@ class _MainScreenState extends State<MainScreen> {
   int currentIndex = 0;
 
   List<Widget> pages = [
-   const  HomeScreen(),
-  const   NotificationScreen(),
+    //  const  HomeScreen(),
+    AssetsRequestListScreen(),
+    const NotificationScreen(),
     CalenderScreen(),
     // ActivityScreen()
     LeaveRequestScreen()
@@ -57,7 +59,7 @@ class _MainScreenState extends State<MainScreen> {
             currentIndex = index;
           });
         },
-        items:const  [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
