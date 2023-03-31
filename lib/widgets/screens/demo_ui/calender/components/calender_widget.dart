@@ -22,7 +22,7 @@ class _SelectDateWidgetState extends State<SelectDateWidget> {
   final events = LinkedHashMap(
     equals: isSameDay,
     hashCode: (date) => date.hashCode,
-  )..addAll({DateTime.now().subtract(Duration(days: 5)): 'Ghode jatra'});
+  )..addAll({DateTime.now().subtract(const Duration(days: 5)): 'Ghode jatra'});
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +76,7 @@ class _SelectDateWidgetState extends State<SelectDateWidget> {
             color: Colors.orange,
             borderRadius: BorderRadius.circular(20.0),
           ),
-          formatButtonTextStyle: TextStyle(color: Colors.white),
+          formatButtonTextStyle: const TextStyle(color: Colors.white),
           formatButtonShowsNext: false,
         ),
         calendarFormat: CalendarFormat.month,
@@ -90,8 +90,8 @@ class _SelectDateWidgetState extends State<SelectDateWidget> {
             selectedDay = selectDay;
             focusedDay = focuseDay;
           });
-          print(selectDay);
-          print(focuseDay);
+          // print(selectDay);
+          // print(focuseDay);
         },
         selectedDayPredicate: (day) {
           return isSameDay(selectedDay, day);

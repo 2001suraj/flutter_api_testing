@@ -25,5 +25,6 @@ class AssignmentTypeList {
     } catch (e) {
       log(e.toString());
     }
+    return null;
   }
 }

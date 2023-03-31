@@ -10,27 +10,24 @@ class AssignmentTypeListScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
-        child: Container(
-          child: FutureBuilder(
-            future: assignmentTypeList,
-            builder: (context, snapshot) {
-              return ListView.builder(
-                itemCount: snapshot.data?.length,
-                shrinkWrap: true,
-                primary: false,
-                itemBuilder: (context, index) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Name  :  " + (snapshot.data?[index].name).toString()),
-                      Text("AssignmentTypeId :  " +
-                          (snapshot.data?[index].assignmentTypeId).toString()),
-                    ],
-                  );
-                },
-              );
-            },
-          ),
+        child: FutureBuilder(
+          future: assignmentTypeList,
+          builder: (context, snapshot) {
+            return ListView.builder(
+              itemCount: snapshot.data?.length,
+              shrinkWrap: true,
+              primary: false,
+              itemBuilder: (context, index) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Name  :  ${snapshot.data?[index].name}"),
+                    Text("AssignmentTypeId :  ${snapshot.data?[index].assignmentTypeId}"),
+                  ],
+                );
+              },
+            );
+          },
         ),
       ),
     );

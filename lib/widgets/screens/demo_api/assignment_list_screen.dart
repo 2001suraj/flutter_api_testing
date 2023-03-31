@@ -10,27 +10,25 @@ class AssignmentListScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
-        child: Container(
-          child: FutureBuilder(
-            future: assignmentList,
-            builder: (context, snapshot) {
-              return ListView.builder(
-                itemCount: snapshot.data?.length,
-                shrinkWrap: true,
-                primary: false,
-                itemBuilder: (context, index) {
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Class Id  :  ${snapshot.data?[index].classId} "),
-                    
-                      Text("Class :  ${snapshot.data?[index].className} "),
-                    ],
-                  );
-                },
-              );
-            },
-          ),
+        child: FutureBuilder(
+          future: assignmentList,
+          builder: (context, snapshot) {
+            return ListView.builder(
+              itemCount: snapshot.data?.length,
+              shrinkWrap: true,
+              primary: false,
+              itemBuilder: (context, index) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Class Id  :  ${snapshot.data?[index].classId} "),
+                  
+                    Text("Class :  ${snapshot.data?[index].className} "),
+                  ],
+                );
+              },
+            );
+          },
         ),
       ),
     );

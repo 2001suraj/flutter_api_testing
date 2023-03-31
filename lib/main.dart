@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_api_testing/widgets/screens/demo_ui/activity/activity_screen.dart';
 import 'package:flutter_api_testing/widgets/screens/demo_ui/calender/calender_screen.dart';
 import 'package:flutter_api_testing/widgets/screens/demo_ui/home/home_screen.dart';
+import 'package:flutter_api_testing/widgets/screens/demo_ui/leave_request/leave_request_screen.dart';
 import 'package:flutter_api_testing/widgets/screens/demo_ui/notification/notification_screen.dart';
 
 void main() {
@@ -20,13 +20,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MainScreen(),
+      home: const MainScreen(),
     );
   }
 }
 
 class MainScreen extends StatefulWidget {
-  MainScreen({super.key});
+  const MainScreen({super.key});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -36,10 +36,11 @@ class _MainScreenState extends State<MainScreen> {
   int currentIndex = 0;
 
   List<Widget> pages = [
-    HomeScreen(),
-    NotificationScreen(),
+   const  HomeScreen(),
+  const   NotificationScreen(),
     CalenderScreen(),
-    ActivityScreen()
+    // ActivityScreen()
+    LeaveRequestScreen()
   ];
   @override
   Widget build(BuildContext context) {
@@ -56,7 +57,7 @@ class _MainScreenState extends State<MainScreen> {
             currentIndex = index;
           });
         },
-        items: [
+        items:const  [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',

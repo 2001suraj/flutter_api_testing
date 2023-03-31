@@ -1,16 +1,17 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_api_testing/widgets/base_widgets/custom_app_bar.dart';
 import 'package:flutter_api_testing/widgets/screens/demo_ui/calender/components/calender_widget.dart';
 import 'package:flutter_api_testing/widgets/screens/demo_ui/calender/components/single_event_calender.dart';
 import 'package:intl/intl.dart';
 
 class CalenderScreen extends StatelessWidget {
-  CalenderScreen({super.key});
+ CalenderScreen({super.key});
   String currentMonth = DateFormat.MMMM().format(DateTime.now());
   String monthYear = DateFormat.yMMMM().format(DateTime.now());
 
-  List<Color> colors = [
+   final List<Color> colors = [
     Colors.red,
     Colors.green,
     Colors.green,
@@ -26,18 +27,8 @@ class CalenderScreen extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60),
-        child: ClipRRect(
-          borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(20),
-              bottomRight: Radius.circular(20)),
-          child: AppBar(
-            backgroundColor: Color.fromARGB(255, 41, 2, 55),
-            title: Text('Calender'),
-            leading: IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.arrow_back),
-            ),
-          ),
+        child: CustomAppBar(
+          title: 'Calender',
         ),
       ),
       backgroundColor: Color.fromARGB(255, 228, 235, 221),
@@ -53,7 +44,7 @@ class CalenderScreen extends StatelessWidget {
             children: [
               // month and year
               Text(
-                '$monthYear',
+                monthYear,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
               //table calender
@@ -86,7 +77,7 @@ class CalenderScreen extends StatelessWidget {
                           ),
                           context: context,
                           builder: (context) {
-                            return Container(
+                            return SizedBox(
                               height: 200,
                               child: Column(
                                 children: [
@@ -233,3 +224,4 @@ class CalenderScreen extends StatelessWidget {
     );
   }
 }
+

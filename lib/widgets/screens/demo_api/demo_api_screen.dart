@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_api_testing/services/apis/add_homework.dart';
 import 'package:flutter_api_testing/services/apis/get_my_remark.dart';
 import 'package:flutter_api_testing/services/apis/leave_type.dart';
 import 'package:flutter_api_testing/services/apis/student_remark.dart';
@@ -12,7 +11,7 @@ import 'package:flutter_api_testing/widgets/screens/demo_api/assignment_type_lis
 import '../../../services/apis/leave_request.dart';
 
 class DemoApiScreen extends StatelessWidget {
-  DemoApiScreen({super.key});
+  const DemoApiScreen({super.key});
  
   @override
   Widget build(BuildContext context) {
@@ -29,7 +28,7 @@ class DemoApiScreen extends StatelessWidget {
     var myRemark = GetMyRemarks().getMyRemarks();
     var leaveType = LeaveType().getLeaveType();
     var leaveRequest = LeaveRequest().getLeaveRequest();
-    var addHomeWork = AddHomework().addHomework();
+    // var addHomeWork = AddHomework().addHomework();
 
     return Scaffold(
       appBar: AppBar(),
@@ -41,14 +40,14 @@ class DemoApiScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //student
-              Text('Student ', style: TextStyle(fontWeight: FontWeight.bold)),
-              SizedBox(
+              const Text('Student ', style: TextStyle(fontWeight: FontWeight.bold)),
+             const  SizedBox(
                 height: 10,
               ),
               FutureBuilder(
                 future: getstudenttoken,
                 builder: (context, snapshot) {
-                  return Container(
+                  return SizedBox(
                     height: 50,
                     child: FutureBuilder(
                       future: LocalStorage().gettoken(value: 'token'),
@@ -79,21 +78,21 @@ class DemoApiScreen extends StatelessWidget {
                 },
               ),
               //teacher
-              Text('Teacher ', style: TextStyle(fontWeight: FontWeight.bold)),
-              SizedBox(
+              const Text('Teacher ', style: TextStyle(fontWeight: FontWeight.bold)),
+              const SizedBox(
                 height: 10,
               ),
               FutureBuilder(
                 future: teachertoken,
                 builder: (context, snapshot) {
-                  return Container(
+                  return SizedBox(
                     height: 150,
                     child: FutureBuilder(
                       future: LocalStorage().gettoken(value: 'Teachertoken'),
                       builder: (context, snap) {
                         return Column(
                           children: [
-                            Container(
+                            SizedBox(
                               height: 90,
                               child: FutureBuilder(
                                 future: myRemark,
@@ -129,10 +128,10 @@ class DemoApiScreen extends StatelessWidget {
                   );
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text('Leave Type :',
+              const Text('Leave Type :',
                   style: TextStyle(fontWeight: FontWeight.bold)),
 
               //teacher
@@ -140,7 +139,7 @@ class DemoApiScreen extends StatelessWidget {
               FutureBuilder(
                 future: teachertoken,
                 builder: (context, snapshot) {
-                  return Container(
+                  return SizedBox(
                     height: 150,
                     child: FutureBuilder(
                       future: LocalStorage().gettoken(value: 'Teachertoken'),
@@ -150,7 +149,7 @@ class DemoApiScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             //leave type
-                            Container(
+                            SizedBox(
                               height: 100,
                               child: FutureBuilder(
                                 future: leaveType,
@@ -167,14 +166,14 @@ class DemoApiScreen extends StatelessWidget {
                                 },
                               ),
                             ),
-                            Text('Leave Type :',
+                            const Text('Leave Type :',
                                 style: TextStyle(fontWeight: FontWeight.bold)),
 
                             //leave request
                             FutureBuilder(
                               future: leaveRequest,
                               builder: (context, snapshot) {
-                                return Container(
+                                return SizedBox(
                                     height: 30,
                                     child: Text('${snapshot.data}'));
                               },
@@ -187,26 +186,26 @@ class DemoApiScreen extends StatelessWidget {
                 },
               ),
 
-              AddAssingmentScreen(),
+              const AddAssingmentScreen(),
 
               TextButton(
                   onPressed: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AssignmentTypeListScreen(),
+                          builder: (context) => const AssignmentTypeListScreen(),
                         ));
                   },
-                  child: Text('Assignement Type list')),
+                  child: const Text('Assignement Type list')),
               TextButton(
                   onPressed: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AssignmentListScreen(),
+                          builder: (context) => const AssignmentListScreen(),
                         ));
                   },
-                  child: Text('Assignement list')),
+                  child: const Text('Assignement list')),
             ],
           ),
         ),
