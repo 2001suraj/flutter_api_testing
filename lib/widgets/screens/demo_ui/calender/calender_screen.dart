@@ -7,11 +7,11 @@ import 'package:flutter_api_testing/widgets/screens/demo_ui/calender/components/
 import 'package:intl/intl.dart';
 
 class CalenderScreen extends StatelessWidget {
-  CalenderScreen({super.key});
+ CalenderScreen({super.key});
   String currentMonth = DateFormat.MMMM().format(DateTime.now());
   String monthYear = DateFormat.yMMMM().format(DateTime.now());
 
-  List<Color> colors = [
+   final List<Color> colors = [
     Colors.red,
     Colors.green,
     Colors.green,
@@ -44,7 +44,7 @@ class CalenderScreen extends StatelessWidget {
             children: [
               // month and year
               Text(
-                '$monthYear',
+                monthYear,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
               //table calender
@@ -77,7 +77,7 @@ class CalenderScreen extends StatelessWidget {
                           ),
                           context: context,
                           builder: (context) {
-                            return Container(
+                            return SizedBox(
                               height: 200,
                               child: Column(
                                 children: [

@@ -6,7 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 
 class LeaveRequestScreen extends StatefulWidget {
-  LeaveRequestScreen({super.key});
+  const LeaveRequestScreen({super.key});
 
   @override
   State<LeaveRequestScreen> createState() => _LeaveRequestScreenState();
@@ -62,8 +62,8 @@ class _LeaveRequestScreenState extends State<LeaveRequestScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60),
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(60),
         child: CustomAppBar(
           title: 'Leave Request',
         ),
@@ -218,7 +218,7 @@ class _LeaveRequestScreenState extends State<LeaveRequestScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
@@ -243,11 +243,11 @@ class _LeaveRequestScreenState extends State<LeaveRequestScreen> {
                             ),
                             suffixIcon: IconButton(
                                 onPressed: () => selectFromDate(context),
-                                icon: Icon(Icons.arrow_drop_down)),
+                                icon: const Icon(Icons.arrow_drop_down)),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Expanded(
@@ -275,13 +275,13 @@ class _LeaveRequestScreenState extends State<LeaveRequestScreen> {
                             ),
                             suffixIcon: IconButton(
                                 onPressed: () => selectToDate(context),
-                                icon: Icon(Icons.arrow_drop_down)),
+                                icon: const Icon(Icons.arrow_drop_down)),
                           ),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   TextFormField(
@@ -354,18 +354,18 @@ class _LeaveRequestScreenState extends State<LeaveRequestScreen> {
                             await picker.pickImage(source: ImageSource.gallery);
                         setState(() {
                           image = img;
-                          print(
-                            File(image!.path),
-                          );
+                          // print(
+                          //   File(image!.path),
+                          // );
                         });
                       },
                       icon: Transform.rotate(
-                          angle: 44.5, child: Icon(Icons.attach_file))),
+                          angle: 44.5, child: const Icon(Icons.attach_file))),
                 ),
               ),
             ),
             image == null
-                ? SizedBox()
+                ? const SizedBox()
                 : Container(
                     color: Colors.grey,
                     width: MediaQuery.of(context).size.width,

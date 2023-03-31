@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class SingelEventContainer extends StatelessWidget {
-  SingelEventContainer({Key? key, required this.color})
+  const SingelEventContainer({Key? key, required this.color})
       : super(
           key: key,
         );
-  Color color;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -57,20 +57,20 @@ class SingelEventContainer extends StatelessWidget {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+                    children: const [
                       //passed
-                      const Text(
+                      Text(
                         'Passed',
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 5,
                       ),
                       // for class
-                      const Text(
+                      Text(
                         'For Class : ',
                         style: TextStyle(
                           fontSize: 12,

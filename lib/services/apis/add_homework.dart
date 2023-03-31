@@ -37,8 +37,8 @@ class AddHomework {
           }),
           data: formData);
       if (response.statusCode == 200) {
-        print('homework Added ===== >>  ' + response.data['ResponseMSG']);
-        print(response.data['IsSuccess']);
+        // print('homework Added ===== >>  ' + response.data['ResponseMSG']);
+        // print(response.data['IsSuccess']);
         return response.data['ResponseMSG'];
       }
     } catch (e) {

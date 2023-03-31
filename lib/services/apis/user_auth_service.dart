@@ -5,7 +5,6 @@ import 'package:flutter_api_testing/dio/end_points.dart';
 import 'package:flutter_api_testing/models/student_login_model/student_login_model.dart';
 import 'package:flutter_api_testing/models/teacher_login_model/teacher_login_model.dart';
 import 'package:flutter_api_testing/services/local_storage/local.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../dio/dio_client.dart';
 
@@ -79,10 +78,10 @@ class UserAuthService {
 
         LocalStorage()
             .savetoken(key: 'token', token: data.accessToken.toString());
-        print(
-            'teacher token : ===>  ${await LocalStorage().gettoken(value: 'Teachertoken')}');
-        print(
-            'student token : ===>  ${await LocalStorage().gettoken(value: 'token')}');
+        // print(
+        //     'teacher token : ===>  ${await LocalStorage().gettoken(value: 'Teachertoken')}');
+        // print(
+        //     'student token : ===>  ${await LocalStorage().gettoken(value: 'token')}');
 
         return StudentLoginModel.fromMap(response.data);
       } else {}

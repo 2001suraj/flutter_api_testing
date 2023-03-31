@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 class CustomAppBar extends StatelessWidget {
-  CustomAppBar({
+  const CustomAppBar({
     Key? key,
     required this.title
   }) : super(key: key);
-  String title;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.only(
+      borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(20), bottomRight: Radius.circular(20)),
       child: AppBar(
-        backgroundColor: Color.fromARGB(255, 41, 2, 55),
+        backgroundColor: const Color.fromARGB(255, 41, 2, 55),
         title: Text(title),
         leading: IconButton(
           onPressed: () {},
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
         ),
       ),
     );
