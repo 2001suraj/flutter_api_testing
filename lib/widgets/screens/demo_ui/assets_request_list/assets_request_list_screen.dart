@@ -10,7 +10,20 @@ class AssetsRequestListScreen extends StatelessWidget {
 
   final List<String> shortByList = ['Time', 'Type', 'Size'];
   List<String> chipList = ['Pending', 'Not Approved', 'Approved'];
-  List<String> date = ['15-Jan-2021', '01-Feb-2021'];
+  List<String> date = [
+    '15-Jan-2021',
+    '01-Feb-2021',
+    '15-Jan-2021',
+    '01-Feb-2021',
+    '15-Jan-2021',
+    '01-Feb-2021',
+    '15-Jan-2021',
+    '01-Feb-2021',
+    '15-Jan-2021',
+    '01-Feb-2021',
+    '15-Jan-2021',
+    '01-Feb-2021',
+  ];
   List<String> image = [
     'assets/images/1.jpg',
     'assets/images/2.jpg',
@@ -153,7 +166,7 @@ class AssetsRequestListScreen extends StatelessWidget {
                       child: ListView.builder(
                     shrinkWrap: true,
                     primary: false,
-                    itemCount: 2,
+                    itemCount: date.length,
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
                       return IntrinsicHeight(
