@@ -6,35 +6,7 @@ class StudentLeaveRequestScreen extends StatelessWidget {
   final List<String> shortByList = ['Approved', 'Denied', 'Pending'];
 
   String? selectShortBy;
-  List<String> date = [
-    '15-Jan-2021',
-    '01-Feb-2021',
-    '15-Jan-2021',
-    '01-Feb-2021',
-    '15-Jan-2021',
-    '01-Feb-2021',
-    '15-Jan-2021',
-    '01-Feb-2021',
-    '15-Jan-2021',
-    '01-Feb-2021',
-    '15-Jan-2021',
-    '01-Feb-2021',
-  ];
 
-  List<String> image = [
-    'assets/images/1.jpg',
-    'assets/images/2.jpg',
-    'assets/images/3.jpg',
-    'assets/images/1.jpg',
-    'assets/images/1.jpg',
-    'assets/images/2.jpg',
-    'assets/images/3.jpg',
-    'assets/images/1.jpg',
-    'assets/images/1.jpg',
-    'assets/images/2.jpg',
-    'assets/images/3.jpg',
-    'assets/images/1.jpg',
-  ];
 
   @override
   Widget build(BuildContext context) {
