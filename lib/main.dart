@@ -4,6 +4,8 @@ import 'package:flutter_api_testing/widgets/screens/demo_ui/calender/calender_sc
 import 'package:flutter_api_testing/widgets/screens/demo_ui/home/home_screen.dart';
 import 'package:flutter_api_testing/widgets/screens/demo_ui/leave_request/leave_request_screen.dart';
 import 'package:flutter_api_testing/widgets/screens/demo_ui/notification/notification_screen.dart';
+import 'package:flutter_api_testing/widgets/screens/demo_ui/student%20leave%20request/student_leave_request_screen.dart';
+import 'package:sizer/sizer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +17,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return Sizer(builder: (context, orientation, deviceType) {
+      return  MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -23,6 +26,8 @@ class MyApp extends StatelessWidget {
       ),
       home: const MainScreen(),
     );
+    });
+   
   }
 }
 
@@ -39,7 +44,8 @@ class _MainScreenState extends State<MainScreen> {
   List<Widget> pages = [
     //  const  HomeScreen(),
     AssetsRequestListScreen(),
-    const NotificationScreen(),
+    // const NotificationScreen(),
+    StudentLeaveRequestScreen(),
     CalenderScreen(),
     // ActivityScreen()
     LeaveRequestScreen()

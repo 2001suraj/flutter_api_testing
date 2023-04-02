@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_api_testing/widgets/screens/demo_ui/assets_request_list/components/individual_assets_request_container.dart';
 
-class AssetsRequestListScreen extends StatelessWidget {
+class AssetsRequestListScreen extends StatefulWidget {
   AssetsRequestListScreen({super.key});
+
+  @override
+  State<AssetsRequestListScreen> createState() =>
+      _AssetsRequestListScreenState();
+}
+
+class _AssetsRequestListScreenState extends State<AssetsRequestListScreen> {
   final List<String> dropdowndateList = [
     '01-Jan-2021 to 30-Apr-2021',
     '01-Jan-2021 to 30-Apr-2021'
   ];
 
   final List<String> shortByList = ['Time', 'Type', 'Size'];
+
   List<String> chipList = ['Pending', 'Not Approved', 'Approved'];
+
   List<String> date = [
     '15-Jan-2021',
     '01-Feb-2021',
@@ -24,7 +33,16 @@ class AssetsRequestListScreen extends StatelessWidget {
     '15-Jan-2021',
     '01-Feb-2021',
   ];
+
   List<String> image = [
+    'assets/images/1.jpg',
+    'assets/images/2.jpg',
+    'assets/images/3.jpg',
+    'assets/images/1.jpg',
+    'assets/images/1.jpg',
+    'assets/images/2.jpg',
+    'assets/images/3.jpg',
+    'assets/images/1.jpg',
     'assets/images/1.jpg',
     'assets/images/2.jpg',
     'assets/images/3.jpg',
@@ -32,7 +50,27 @@ class AssetsRequestListScreen extends StatelessWidget {
   ];
 
   String? selectdate;
+
   String? selectShortBy;
+  int _index = 0;
+
+  Step ss({date, images}) {
+    return Step(
+      // isActive: true,
+      // state: StepState.indexed,
+      title: Text(
+        date,
+      ),
+      content: IndividualAssetRequestListContainer(
+        image: images,
+        name: 'Elizabeth James',
+        assetType: 'Vehicle',
+        assetName: 'Scooty',
+        quantity: '1',
+        remarks: 'Some Text',
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +128,11 @@ class AssetsRequestListScreen extends StatelessWidget {
                             child: Text(value),
                           );
                         }).toList(),
-                        onChanged: (String? newValue) {},
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            selectdate == newValue;
+                          });
+                        },
                         decoration: const InputDecoration(
                             hintText: '01-Jan-2021 to 30-Apr-2021',
                             hintStyle: TextStyle(fontSize: 14),
@@ -160,83 +202,174 @@ class AssetsRequestListScreen extends StatelessWidget {
                   },
                 ),
               ),
-              Row(
-                children: [
-                  Expanded(
-                      child: ListView.builder(
-                    shrinkWrap: true,
-                    primary: false,
-                    itemCount: date.length,
-                    scrollDirection: Axis.vertical,
-                    itemBuilder: (context, index) {
-                      return IntrinsicHeight(
-                        child: Row(
-                          children: [
-                            //vertical divider
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 18.0),
-                              child: Stack(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 1.5),
-                                    child: VerticalDivider(
-                                      color: Colors.green[400],
-                                      thickness: 1,
-                                    ),
-                                  ),
-                                  CircleAvatar(
-                                    radius: 10,
-                                    backgroundColor: Colors.green[400],
-                                    child: Container(
-                                      height: 15,
-                                      width: 15,
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          border: Border.all(
-                                              color: Colors.white, width: 2),
-                                          color: Colors.green[400]),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
+              // Row(
+              //   children: [
+              //     Expanded(
+              //         child: ListView.builder(
+              //       shrinkWrap: true,
+              //       primary: false,
+              //       itemCount: date.length,
+              //       scrollDirection: Axis.vertical,
+              //       itemBuilder: (context, index) {
+              //         return IntrinsicHeight(
+              //           child: Row(
+              //             children: [
+              //               //vertical divider
+              //               Padding(
+              //                 padding:
+              //                     const EdgeInsets.symmetric(horizontal: 18.0),
+              //                 child: Stack(
+              //                   children: [
+              //                     Padding(
+              //                       padding: const EdgeInsets.only(left: 1.5),
+              //                       child: VerticalDivider(
+              //                         color: Colors.green[400],
+              //                         thickness: 1,
+              //                       ),
+              //                     ),
+              //                     CircleAvatar(
+              //                       radius: 10,
+              //                       backgroundColor: Colors.green[400],
+              //                       child: Container(
+              //                         height: 15,
+              //                         width: 15,
+              //                         decoration: BoxDecoration(
+              //                             shape: BoxShape.circle,
+              //                             border: Border.all(
+              //                                 color: Colors.white, width: 2),
+              //                             color: Colors.green[400]),
+              //                       ),
+              //                     ),
+              //                   ],
+              //                 ),
+              //               ),
 
-                            //date
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  date[index],
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                                IndividualAssetRequestListContainer(
-                                  image: image[index],
-                                  name: 'Elizabeth James',
-                                  assetType: 'Vehicle',
-                                  assetName: 'Scooty',
-                                  quantity: '1',
-                                  remarks: 'Some Text',
-                                ),
-                                IndividualAssetRequestListContainer(
-                                  image: image[index + 1],
-                                  name: 'MArilyn Valdez ',
-                                  assetType: 'Stationery',
-                                  assetName: 'Chalk',
-                                  quantity: '1',
-                                  remarks: 'Some Text',
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                )
-                              ],
-                            ),
-                          ],
+              //               //date
+              //               Column(
+              //                 crossAxisAlignment: CrossAxisAlignment.start,
+              //                 children: [
+              //                   Text(
+              //                     date[index],
+              //                     style: TextStyle(fontWeight: FontWeight.bold),
+              //                   ),
+              //                   IndividualAssetRequestListContainer(
+              //                     image: image[index],
+              //                     name: 'Elizabeth James',
+              //                     assetType: 'Vehicle',
+              //                     assetName: 'Scooty',
+              //                     quantity: '1',
+              //                     remarks: 'Some Text',
+              //                   ),
+              //                   IndividualAssetRequestListContainer(
+              //                     image: image[index],
+              //                     name: 'MArilyn Valdez ',
+              //                     assetType: 'Stationery',
+              //                     assetName: 'Chalk',
+              //                     quantity: '1',
+              //                     remarks: 'Some Text',
+              //                   ),
+              //                   SizedBox(
+              //                     height: 20,
+              //                   )
+              //                 ],
+              //               ),
+              //             ],
+              //           ),
+              //         );
+              //       },
+              //     ))
+              //   ],
+              // ),
+              //stepper
+              Stepper(
+                physics: BouncingScrollPhysics(),
+                controlsBuilder: (context, controller) {
+                  return const SizedBox.shrink();
+                },
+                currentStep: _index,
+                onStepTapped: (int index) {
+                  setState(() {
+                    _index = index;
+                  });
+                },
+                steps: List.generate(date.length, (index) {
+                  return Step(
+                    isActive: _index == index ? true : false,
+                    title: Text(
+                      date[index],
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ), // set the title for each step
+                    content: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        IndividualAssetRequestListContainer(
+                          image: image[index],
+                          name: 'Elizabeth James',
+                          assetType: 'Vehicle',
+                          assetName: 'Scooty',
+                          quantity: '1',
+                          remarks: 'Some Text',
                         ),
-                      );
-                    },
-                  ))
-                ],
+                        IndividualAssetRequestListContainer(
+                          image: image[index],
+                          name: 'MArilyn Valdez ',
+                          assetType: 'Stationery',
+                          assetName: 'Chalk',
+                          quantity: '1',
+                          remarks: 'Some Text',
+                        ),
+                        SizedBox(
+                          height: 20,
+                        )
+                      ],
+                    ),
+                    // set the content of each step (in this example, an empty SizedBox)
+                  );
+                }),
+
+                // [
+                //   // ListView.builder(
+                //   //   itemBuilder: (context, index) {
+                //   //     return Step(
+                //   //       isActive: true,
+                //   //       title: const Text('Step 1 title'),
+                //   //       content: Container(
+                //   //           alignment: Alignment.centerLeft,
+                //   //           child: const Text('Content for Step 1')),
+                //   //     );
+                //   //   },
+                //   // ),
+                //   Step(
+                //     // isActive: true,
+                //     // state: StepState.indexed,
+                //     title: Text(
+                //       '15-Jan-2021',
+                //     ),
+                //     content: IndividualAssetRequestListContainer(
+                //       image: image[2],
+                //       name: 'Elizabeth James',
+                //       assetType: 'Vehicle',
+                //       assetName: 'Scooty',
+                //       quantity: '1',
+                //       remarks: 'Some Text',
+                //     ),
+                //   ),
+                //   Step(
+                //     // isActive: true,
+                //     // state: StepState.indexed,
+                //     title: Text(
+                //       '15-Jan-2021',
+                //     ),
+                //     content: IndividualAssetRequestListContainer(
+                //       image: image[1],
+                //       name: 'Elizabeth James',
+                //       assetType: 'Vehicle',
+                //       assetName: 'Scooty',
+                //       quantity: '1',
+                //       remarks: 'Some Text',
+                //     ),
+                //   ),
+                // ],
               ),
             ],
           )),
