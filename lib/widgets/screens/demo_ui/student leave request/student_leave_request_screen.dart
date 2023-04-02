@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:sizer/sizer.dart';
-import 'package:flutter_api_testing/widgets/screens/demo_ui/assets_request_list/components/individual_assets_request_container.dart';
 
 class StudentLeaveRequestScreen extends StatelessWidget {
   StudentLeaveRequestScreen({super.key});
@@ -67,7 +65,7 @@ class StudentLeaveRequestScreen extends StatelessWidget {
                           bottom: BorderSide(color: Colors.grey),
                           right: BorderSide(color: Colors.grey)),
                     ),
-                    padding: EdgeInsets.only(left: 10),
+                    padding: const EdgeInsets.only(left: 10),
                     alignment: Alignment.centerLeft,
                     child: const Text(
                       'Total Leave Request : 2',
@@ -102,7 +100,7 @@ class StudentLeaveRequestScreen extends StatelessWidget {
             ),
           ),
 
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           //event
@@ -112,7 +110,7 @@ class StudentLeaveRequestScreen extends StatelessWidget {
                   child: ListView.builder(
                 shrinkWrap: true,
                 primary: false,
-                itemCount: date.length,
+                itemCount: 4,
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) {
                   return IntrinsicHeight(
@@ -183,7 +181,7 @@ class StudentLeaveRequestScreen extends StatelessWidget {
                         Container(
                           height: 150,
                           width: 74.w,
-                          margin: EdgeInsets.only(bottom: 20),
+                          margin: const EdgeInsets.only(bottom: 20),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12),
                               color: Colors.grey),
@@ -192,9 +190,9 @@ class StudentLeaveRequestScreen extends StatelessWidget {
                             children: [
                               Container(
                                 height: 40,
-                                margin: EdgeInsets.symmetric(
+                                margin: const EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 20),
-                                padding: EdgeInsets.only(left: 10),
+                                padding: const EdgeInsets.only(left: 10),
                                 width: double.infinity,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
@@ -223,7 +221,7 @@ class StudentLeaveRequestScreen extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
+                                    const Text(
                                       'Requested  : 1',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
@@ -232,7 +230,7 @@ class StudentLeaveRequestScreen extends StatelessWidget {
                                     CircleAvatar(
                                         radius: 15,
                                         backgroundColor: Colors.green[400],
-                                        child: Icon(
+                                        child: const Icon(
                                           Icons.arrow_forward_ios_rounded,
                                           size: 20,
                                           color: Colors.white,
@@ -263,22 +261,22 @@ class StudentLeaveRequestScreen extends StatelessWidget {
             backgroundColor: color,
             radius: 5,
           ),
-          SizedBox(
+          const SizedBox(
             width: 5,
           ),
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 12,
             ),
           ),
           Text(
             date,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 12,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 5,
           ),
         ],
