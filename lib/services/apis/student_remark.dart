@@ -10,7 +10,6 @@ import '../../dio/dio_client.dart';
 class StudentRemark {
   Future<List<StudentRemarkmodel>?> studentRemark() async {
     try {
-
       final response = await dioClientWithNoAuth.post(
         ApiEndPoint.generalStudentRemarks,
         options: Options(headers: {

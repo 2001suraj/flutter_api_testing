@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_api_testing/widgets/screens/demo_api/demo_api_screen.dart';
 import 'package:flutter_api_testing/widgets/screens/demo_ui/assets_request_list/assets_request_list_screen.dart';
 import 'package:flutter_api_testing/widgets/screens/demo_ui/calender/calender_screen.dart';
 import 'package:flutter_api_testing/widgets/screens/demo_ui/home/home_screen.dart';
@@ -18,16 +19,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
-      return  MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MainScreen(),
-    );
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        // home: DemoApiScreen(),
+        home: const MainScreen(),
+      );
     });
-   
   }
 }
 
@@ -42,8 +43,8 @@ class _MainScreenState extends State<MainScreen> {
   int currentIndex = 0;
 
   List<Widget> pages = [
-    //  const  HomeScreen(),
-    AssetsRequestListScreen(),
+    const HomeScreen(),
+
     // const NotificationScreen(),
     StudentLeaveRequestScreen(),
     CalenderScreen(),

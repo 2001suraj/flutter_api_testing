@@ -7,11 +7,11 @@ import 'package:flutter_api_testing/widgets/screens/demo_ui/calender/components/
 import 'package:intl/intl.dart';
 
 class CalenderScreen extends StatelessWidget {
- CalenderScreen({super.key});
+  CalenderScreen({super.key});
   final String currentMonth = DateFormat.MMMM().format(DateTime.now());
- final String monthYear = DateFormat.yMMMM().format(DateTime.now());
+  final String monthYear = DateFormat.yMMMM().format(DateTime.now());
 
-   final List<Color> colors = [
+  final List<Color> colors = [
     Colors.red,
     Colors.green,
     Colors.green,
@@ -224,4 +224,3 @@ class CalenderScreen extends StatelessWidget {
     );
   }
 }
-

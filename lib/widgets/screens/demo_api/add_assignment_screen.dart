@@ -19,13 +19,12 @@ class AddAssingmentScreen extends StatelessWidget {
           return TextButton(
               onPressed: () async {
                 final ImagePicker picker = ImagePicker();
-                final img =
-                    await picker.pickImage(source: ImageSource.gallery);
+                final img = await picker.pickImage(source: ImageSource.gallery);
                 // setState(() {
                 image = img;
-                // print(
-                //   File(image!.path),
-                // );
+                print(
+                  File(image!.path),
+                );
                 // });
               },
               child: Text('save'));
