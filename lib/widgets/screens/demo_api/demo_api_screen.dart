@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_api_testing/services/apis/add_homework.dart';
 import 'package:flutter_api_testing/services/apis/get_my_remark.dart';
+import 'package:flutter_api_testing/services/apis/homework_by_id.dart';
+import 'package:flutter_api_testing/services/apis/homework_list.dart';
+import 'package:flutter_api_testing/services/apis/homework_type_list.dart';
 import 'package:flutter_api_testing/services/apis/leave_type.dart';
 import 'package:flutter_api_testing/services/apis/student_remark.dart';
+import 'package:flutter_api_testing/services/apis/submit_homework.dart';
 import 'package:flutter_api_testing/services/apis/user_auth_service.dart';
 import 'package:flutter_api_testing/services/local_storage/local.dart';
 import 'package:flutter_api_testing/widgets/screens/demo_api/add_assignment_screen.dart';
@@ -12,7 +17,7 @@ import '../../../services/apis/leave_request.dart';
 
 class DemoApiScreen extends StatelessWidget {
   const DemoApiScreen({super.key});
- 
+
   @override
   Widget build(BuildContext context) {
     var getstudenttoken = UserAuthService().getStudentToken(
@@ -28,7 +33,11 @@ class DemoApiScreen extends StatelessWidget {
     var myRemark = GetMyRemarks().getMyRemarks();
     var leaveType = LeaveType().getLeaveType();
     var leaveRequest = LeaveRequest().getLeaveRequest();
-    // var addHomeWork = AddHomework().addHomework();
+    var addHomeWork = AddHomework().addHomework();
+    var homeworkListtype = HomeworkTypeList().getHomeTypeList();
+    var homeworkList = HomeWorkList().getHomeoworkList();
+    var homeworkListbyID = HomeWorkListByID().getHomeoworkList();
+    var homeworkSubmit = SubmitHomework().submitHomework();
 
     return Scaffold(
       appBar: AppBar(),
@@ -40,8 +49,9 @@ class DemoApiScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //student
-              const Text('Student ', style: TextStyle(fontWeight: FontWeight.bold)),
-             const  SizedBox(
+              const Text('Student ',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+              const SizedBox(
                 height: 10,
               ),
               FutureBuilder(
@@ -78,7 +88,8 @@ class DemoApiScreen extends StatelessWidget {
                 },
               ),
               //teacher
-              const Text('Teacher ', style: TextStyle(fontWeight: FontWeight.bold)),
+              const Text('Teacher ',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
               const SizedBox(
                 height: 10,
               ),
@@ -193,7 +204,8 @@ class DemoApiScreen extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const AssignmentTypeListScreen(),
+                          builder: (context) =>
+                              const AssignmentTypeListScreen(),
                         ));
                   },
                   child: const Text('Assignement Type list')),

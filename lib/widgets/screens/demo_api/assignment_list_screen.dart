@@ -22,7 +22,6 @@ class AssignmentListScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text("Class Id  :  ${snapshot.data?[index].classId} "),
-                  
                     Text("Class :  ${snapshot.data?[index].className} "),
                   ],
                 );

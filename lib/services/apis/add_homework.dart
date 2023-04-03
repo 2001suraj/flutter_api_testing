@@ -10,21 +10,19 @@ class AddHomework {
   Future<void> addHomework() async {
     try {
       String data = AddHomeworkModel(
-          homeworkTypeId: 1,
-          classId: 4,
-          sectionId: 2,
-          subjectId: 2,
-          lesson: 'new lesson',
-          topic: ' new topic',
-          description: ' new description',
-          deadlineDate: '2023-05-20',
-          deadlineTime: '2023-05-25T10:00',
-          deadlineforRedo: null,
-          deadlineforRedoTime: null,
-          isAllowLateSibmission: true).toString();
-
-
-
+              homeworkTypeId: 1,
+              classId: 4,
+              sectionId: 2,
+              subjectId: 2,
+              lesson: 'new lesson',
+              topic: ' new topic',
+              description: ' new description',
+              deadlineDate: '2023-05-20',
+              deadlineTime: '2023-05-25T10:00',
+              deadlineforRedo: null,
+              deadlineforRedoTime: null,
+              isAllowLateSibmission: true)
+          .toString();
 
       FormData formData = FormData.fromMap({'paraDataColl': data});
 
@@ -37,8 +35,8 @@ class AddHomework {
           }),
           data: formData);
       if (response.statusCode == 200) {
-        // print('homework Added ===== >>  ' + response.data['ResponseMSG']);
-        // print(response.data['IsSuccess']);
+        print('homework Added ===== >>  ' + response.data['ResponseMSG']);
+        print(response.data['IsSuccess']);
         return response.data['ResponseMSG'];
       }
     } catch (e) {

@@ -22,7 +22,8 @@ class AssignmentTypeListScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text("Name  :  ${snapshot.data?[index].name}"),
-                    Text("AssignmentTypeId :  ${snapshot.data?[index].assignmentTypeId}"),
+                    Text(
+                        "AssignmentTypeId :  ${snapshot.data?[index].assignmentTypeId}"),
                   ],
                 );
               },

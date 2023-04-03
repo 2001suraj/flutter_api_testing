@@ -7,7 +7,6 @@ class StudentLeaveRequestScreen extends StatelessWidget {
 
   String? selectShortBy;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -156,19 +155,19 @@ class StudentLeaveRequestScreen extends StatelessWidget {
                           margin: const EdgeInsets.only(bottom: 20),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12),
-                              color: Colors.grey),
+                              color: Colors.white),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
                                 height: 40,
                                 margin: const EdgeInsets.symmetric(
-                                    horizontal: 10, vertical: 20),
+                                    horizontal: 6, vertical: 20),
                                 padding: const EdgeInsets.only(left: 10),
                                 width: double.infinity,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
-                                    color: Colors.white),
+                                    color: Colors.grey.withOpacity(0.2)),
                                 child: Row(
                                   children: [
                                     requestContainer(
