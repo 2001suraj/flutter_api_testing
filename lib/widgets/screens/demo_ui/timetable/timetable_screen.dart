@@ -74,8 +74,8 @@ class TimeTableScreen extends StatelessWidget {
                             vertical: 10, horizontal: 20),
                       ),
                       Container(
-                        height: 130,
-                        width: 250,
+                        height: 110,
+                        width: 200,
                         margin: const EdgeInsets.symmetric(horizontal: 20),
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         decoration: BoxDecoration(
@@ -84,10 +84,8 @@ class TimeTableScreen extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const SizedBox(
-                              height: 10,
-                            ),
                             ListTile(
+                              contentPadding: EdgeInsets.zero,
                               title: Text(
                                 'Opt.Maths',
                                 style:
@@ -109,19 +107,34 @@ class TimeTableScreen extends StatelessWidget {
                                 )
                               ]),
                             ),
-                            const ListTile(
-                              dense: true,
-                              title: Text('6:40AM - 12:20AM'),
-                              trailing: CircleAvatar(
-                                radius: 10,
-                                backgroundColor: Colors.white60,
-                                child: Text(
-                                  '2',
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 14),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text('6:40AM - 12:20AM'),
+                                CircleAvatar(
+                                  radius: 10,
+                                  backgroundColor: Colors.white60,
+                                  child: Text(
+                                    '2',
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 14),
+                                  ),
                                 ),
-                              ),
-                            )
+                              ],
+                            ),
+                            // const ListTile(
+                            //   dense: true,
+                            //   title:
+                            //   trailing: CircleAvatar(
+                            //     radius: 10,
+                            //     backgroundColor: Colors.white60,
+                            //     child: Text(
+                            //       '2',
+                            //       style: TextStyle(
+                            //           color: Colors.black, fontSize: 14),
+                            //     ),
+                            //   ),
+                            // )
                           ],
                         ),
                       ),
